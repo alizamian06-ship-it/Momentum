@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6eee3; /* light muted sage green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #f5f7f2; /* very light sage-ish white */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #556b4e; /* muted darker sage for heading */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #cdd7cb; /* soft sage border */
+    background-color: #f5f7f2;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #a3b18a; /* muted sage button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8ca170; /* slightly darker on hover */
+}
+
+.links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #556b4e; /* muted sage links */
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #556b4e; /* message text matches muted sage theme */
+}
