@@ -6,17 +6,18 @@
     <title>Login Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Arial, sans-serif; 
             background-color: #e6eee3; /* light muted sage green */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            transition: 0.5s ease;
         }
 
         .login-container {
-            background-color: #f5f7f2; /* very light sage-ish white */
+            background-color: #f5f7f2; 
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -26,7 +27,7 @@
 
         h1 {
             margin-bottom: 20px;
-            color: #556b4e; /* muted darker sage for heading */
+            color: #556b4e;
         }
 
         input {
@@ -34,14 +35,14 @@
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
-            border: 1px solid #cdd7cb; /* soft sage border */
+            border: 1px solid #cdd7cb;
             background-color: #f5f7f2;
         }
 
         button {
             width: 100%;
             padding: 10px;
-            background-color: #a3b18a; /* muted sage button */
+            background-color: #a3b18a;
             border: none;
             border-radius: 5px;
             color: white;
@@ -50,7 +51,7 @@
         }
 
         button:hover {
-            background-color: #8ca170; /* slightly darker on hover */
+            background-color: #8ca170;
         }
 
         .links {
@@ -62,22 +63,41 @@
         .links a {
             font-size: 14px;
             text-decoration: none;
-            color: #556b4e; /* muted sage links */
-        }
-
-        .links a:hover {
-            text-decoration: underline;
+            color: #556b4e;
         }
 
         #message {
             margin-top: 15px;
             font-weight: bold;
-            color: #556b4e; /* message text matches muted sage theme */
+            color: #556b4e;
+        }
+
+        /* After-login screen */
+        .success-screen {
+            text-align: center;
+            color: #556b4e;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .success-title {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .success-subtitle {
+            font-size: 22px;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="login-container" id="loginContainer">
         <h1>Login</h1>
         <form id="loginForm">
             <label for="email">Email</label>
@@ -88,18 +108,18 @@
 
             <button type="submit">Login</button>
         </form>
+
         <div class="links">
             <a href="#" id="forgotPassword">Forgot Password?</a>
             <a href="#" id="signUp">Sign Up</a>
         </div>
+
         <p id="message"></p>
     </div>
 
     <script>
         const loginForm = document.getElementById('loginForm');
         const message = document.getElementById('message');
-        const forgotPassword = document.getElementById('forgotPassword');
-        const signUp = document.getElementById('signUp');
 
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -107,22 +127,18 @@
             const password = document.getElementById('password').value;
 
             if(email && password) {
-                message.textContent = "Logged in successfully!";
-                message.style.color = "green";
+                // Replace page with Momentum screen
+                document.body.innerHTML = `
+                    <div class="success-screen">
+                        <div class="success-title">Momentum</div>
+                        <div class="success-subtitle">Routine Builder</div>
+                    </div>
+                `;
+                document.body.style.backgroundColor = "#e6eee3";
             } else {
                 message.textContent = "Please enter email and password.";
                 message.style.color = "red";
             }
-        });
-
-        forgotPassword.addEventListener('click', function() {
-            message.textContent = "Password reset link sent!";
-            message.style.color = "blue";
-        });
-
-        signUp.addEventListener('click', function() {
-            message.textContent = "Redirecting to Sign Up page...";
-            message.style.color = "orange";
         });
     </script>
 </body>
