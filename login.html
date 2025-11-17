@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6eee3; /* light muted sage green */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #f5f7f2; /* very light sage-ish white */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #556b4e; /* muted darker sage for heading */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #cdd7cb; /* soft sage border */
+            background-color: #f5f7f2;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #a3b18a; /* muted sage button */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8ca170; /* slightly darker on hover */
+        }
+
+        .links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .links a {
+            font-size: 14px;
+            text-decoration: none;
+            color: #556b4e; /* muted sage links */
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #556b4e; /* message text matches muted sage theme */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="links">
+            <a href="#" id="forgotPassword">Forgot Password?</a>
+            <a href="#" id="signUp">Sign Up</a>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const message = document.getElementById('message');
+        const forgotPassword = document.getElementById('forgotPassword');
+        const signUp = document.getElementById('signUp');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if(email && password) {
+                message.textContent = "Logged in successfully!";
+                message.style.color = "green";
+            } else {
+                message.textContent = "Please enter email and password.";
+                message.style.color = "red";
+            }
+        });
+
+        forgotPassword.addEventListener('click', function() {
+            message.textContent = "Password reset link sent!";
+            message.style.color = "blue";
+        });
+
+        signUp.addEventListener('click', function() {
+            message.textContent = "Redirecting to Sign Up page...";
+            message.style.color = "orange";
+        });
+    </script>
+</body>
+</html>
